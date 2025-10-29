@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import MatrixRain from "../components/portfolio/MatrixRain";
-import HeroSection from "../components/portfolio/HeroSection";
-import AboutSection from "../components/portfolio/AboutSection";
-import SkillsSection from "../components/portfolio/SkillsSection";
-import ProjectsSection from "../components/portfolio/ProjectsSection";
-import SocialsSection from "../components/portfolio/SocialsSection";
-import TerminalFooter from "../components/portfolio/TerminalFooter";
+import MatrixRain from "../Components/portfolio/MatrixRain";
+import HeroSection from "../Components/portfolio/HeroSection";
+import AboutSection from "../Components/portfolio/AboutSection";
+import SkillsSection from "../Components/portfolio/SkillsSection";
+import ProjectsSection from "../Components/portfolio/ProjectsSection";
+import SocialsSection from "../Components/portfolio/SocialsSection";
+import TerminalFooter from "../Components/portfolio/TerminalFooter";
 
 export default function Portfolio() {
   const [userData, setUserData] = useState({

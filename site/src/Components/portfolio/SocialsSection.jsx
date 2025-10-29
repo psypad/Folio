@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Globe, Github, Linkedin, Twitter, Mail, ExternalLink, Youtube } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/Components/ui/input";
 
 export default function SocialsSection({ userData, setUserData }) {
   const [isEditing, setIsEditing] = useState(false);

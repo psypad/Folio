@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Folder, Github, Plus, Trash2, Edit2 } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
+import { Input } from "@/Components/ui/input";
+import { Textarea } from "@/Components/ui/textarea";
+import { Badge } from "@/Components/ui/badge";
 
 export default function ProjectsSection({ userData, setUserData }) {
   const [isEditing, setIsEditing] = useState(false);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Terminal, Shield, Skull, Github, Linkedin, Twitter, Mail } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/Components/ui/input";
 
 export default function HeroSection({ userData, setUserData }) {
   const [displayedText, setDisplayedText] = useState("");

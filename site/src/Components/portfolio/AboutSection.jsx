@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Code2, Lock, Zap } from "lucide-react";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/Components/ui/textarea";
 
 export default function AboutSection({ userData, setUserData }) {
   const [isEditing, setIsEditing] = useState(false);
