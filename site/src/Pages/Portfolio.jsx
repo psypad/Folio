@@ -27,13 +27,13 @@ export default function Portfolio() {
         title: "SHELL",
         description: "A Post-modern adaptation of the POSIX shell, adapting few features but modernizing the shell by making it into a bare-bones scripting language.",
         technologies: ["RUST"],
-        githubUrl: "https://github.com/psypad/rust-shell"
+        githubUrl: "https://github.com/"
       },
       {
         title: "MALFORMER",
         description: "Enhancing malware classification and detection using Machine Learning methods. Exploring ways the Transformer architecture can aid in Malware analysis",
         technologies: ["PYTHON", "CUDA"],
-        githubUrl: "https://github.com/psypad/Malformer"
+        githubUrl: "https://github.com/"
       },
       {
         title: "PHANTOM PROXY",
@@ -50,7 +50,7 @@ export default function Portfolio() {
     ],
     socials: {
       github: "https://github.com/username",
-      linkedin: "https://linkedin.com/in/username",
+      linkedin: "https://linkedin.com/in/psypad",
       twitter: "https://twitter.com/username",
       email: "contact@example.com"
     }
