@@ -13,11 +13,11 @@ export default function Portfolio() {
     title: "Ingeniarius Machinarum",
     about: "Elite security researcher specializing in vulnerability assessment, penetration testing, and defensive security strategies. Breaking systems to build them stronger.",
     skills: [
-      "PENETRATION TESTING",
-      "NETWORK SECURITY",
-      "EXPLOIT DEVELOPMENT",
-      "REVERSE ENGINEERING",
-      "CRYPTOGRAPHY",
+      "RUST",
+      "C++",
+      "C",
+      "X86_64 ASM",
+      "PYTHON",
       "MALWARE ANALYSIS",
       "SOCIAL ENGINEERING",
       "INCIDENT RESPONSE"
