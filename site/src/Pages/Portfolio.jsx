@@ -33,7 +33,7 @@ export default function Portfolio() {
         title: "MALFORMER",
         description: "Enhancing malware classification and detection using Machine Learning methods. Exploring ways the Transformer architecture can aid in Malware analysis",
         technologies: ["PYTHON", "CUDA"],
-        githubUrl: "https://github.com/username/cryptex-vault"
+        githubUrl: "https://github.com/psypad/Malformer"
       },
       {
         title: "PHANTOM PROXY",
