@@ -83,7 +83,7 @@ export default function AboutSection({ userData, setUserData }) {
               { label: "LINES OF CODE", value: "1337+" },
               { label: "BUGS SQUASHED", value: "256" },
               { label: "HOURS", value: "26280" },
-              { label: "LEVEL", value: "UP" }
+              { label: "LEVEL", value: "INTERMEDIATE" }
             ].map((stat, index) => (
               <div key={index} className="neumorphic-stat p-4 rounded-2xl text-center">
                 <div className="text-2xl md:text-3xl text-[#00ff41] font-bold mb-1">
