@@ -6,12 +6,14 @@ import SkillsSection from "../Components/portfolio/SkillsSection";
 import ProjectsSection from "../Components/portfolio/ProjectsSection";
 import SocialsSection from "../Components/portfolio/SocialsSection";
 import TerminalFooter from "../Components/portfolio/TerminalFooter";
+import LowerAbout from "../Components/portfolio/LowerAbout";
+
 
 export default function Portfolio() {
   const [userData, setUserData] = useState({
     name: "Sylan Padmakumar",
     title: "Ingeniarius Machinarum",
-    about: "Elite security researcher specializing in vulnerability assessment, penetration testing, and defensive security strategies. Breaking systems to build them stronger.",
+    about: "As an innovative final-year computer science student with a minor in cyber security, I am eager to bring my skills and passion for cutting edge technology to the job. My academic foundation combined with a keen interest in low-level systems programming, cyber security, and embedded systems positions me to contribute meaningfully to innovative projects. I am ready to take advantage of my knowledge in cyber security to develop secure, efficient and scalable solutions. Looking for an opportunity to collaborate with industry-leading professionals with whom I can further hone my technical expertise and contribute to pioneering advances in technology.",
     skills: [
       "RUST",
       "C++",
@@ -19,40 +21,26 @@ export default function Portfolio() {
       "X86_64 ASM",
       "PYTHON",
       "MALWARE ANALYSIS",
-      "SOCIAL ENGINEERING",
-      "INCIDENT RESPONSE"
+      "Iot",
     ],
     projects: [
       {
         title: "SHELL",
         description: "A Post-modern adaptation of the POSIX shell, adapting few features but modernizing the shell by making it into a bare-bones scripting language.",
         technologies: ["RUST"],
-        githubUrl: "https://github.com/"
+        githubUrl: "https://github.com/psypad/rust-shell"
       },
       {
         title: "MALFORMER",
         description: "Enhancing malware classification and detection using Machine Learning methods. Exploring ways the Transformer architecture can aid in Malware analysis",
         technologies: ["PYTHON", "CUDA"],
-        githubUrl: "https://github.com/"
+        githubUrl: "https://github.com/psypad/Malformer"
       },
-      {
-        title: "PHANTOM PROXY",
-        description: "Multi-layered proxy network for anonymous browsing. Routes traffic through randomized nodes with military encryption.",
-        technologies: ["GO", "TOR", "VPN", "DOCKER"],
-        githubUrl: "https://github.com/username/phantom-proxy"
-      },
-      {
-        title: "EXPLOIT FRAMEWORK",
-        description: "Modular penetration testing framework with automated vulnerability detection and exploitation capabilities.",
-        technologies: ["C++", "METASPLOIT", "ASSEMBLY", "SHELLCODE"],
-        githubUrl: "https://github.com/username/exploit-framework"
-      }
     ],
     socials: {
-      github: "https://github.com/username",
+      github: "https://github.com/psypad",
       linkedin: "https://linkedin.com/in/psypad",
-      twitter: "https://twitter.com/username",
-      email: "contact@example.com"
+      email: "mailto:sylan.padmakumar@gmail.com"
     }
   });
 

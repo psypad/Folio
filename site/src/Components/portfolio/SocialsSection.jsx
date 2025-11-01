@@ -14,7 +14,6 @@ export default function SocialsSection({ userData, setUserData }) {
   const socialIcons = {
     github: Github,
     linkedin: Linkedin,
-    twitter: Twitter,
     email: Mail,
     youtube: Youtube
   };
@@ -22,7 +21,6 @@ export default function SocialsSection({ userData, setUserData }) {
   const socialLabels = {
     github: "GITHUB",
     linkedin: "LINKEDIN",
-    twitter: "TWITTER",
     email: "EMAIL",
     youtube: "YOUTUBE"
   };
