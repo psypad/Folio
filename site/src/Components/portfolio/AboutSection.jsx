@@ -80,10 +80,10 @@ export default function AboutSection({ userData, setUserData }) {
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
             {[
-              { label: "EXPLOITS", value: "1337+" },
-              { label: "SYSTEMS", value: "256" },
-              { label: "UPTIME", value: "99.9%" },
-              { label: "LEVEL", value: "ELITE" }
+              { label: "LINES OF CODE", value: "1337+" },
+              { label: "BUGS SQUASHED", value: "256" },
+              { label: "HOURS", value: "26280" },
+              { label: "LEVEL", value: "UP" }
             ].map((stat, index) => (
               <div key={index} className="neumorphic-stat p-4 rounded-2xl text-center">
                 <div className="text-2xl md:text-3xl text-[#00ff41] font-bold mb-1">
