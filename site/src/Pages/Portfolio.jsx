@@ -41,15 +41,9 @@ export default function Portfolio() {
     ],
     papers: [
       {
-        title: "YYOLOv8 vs YOLOv11",
-        description: "Presentation for the Image based malware detection .",
-        pdfUrl: "https://drive.google.com/file/d/1JJARO7Rhcw0THpubAwz4G3cgZis4tBfO/preview",
-        thumbnailUrl: ""
-      },
-      {
-        title: "YYOLOv8 vs YOLOv11",
-        description: "A comparative analysis of YOLOv8 and YOLOv11 architectures for malware clasification.",
-        pdfUrl: "https://drive.google.com/file/d/1Qp6UMHGLYlt2Df-JsyffIapZiXRZclzy/preview",
+        title: "Comparative Analysis of YOLOv8 and YOLOv11 for Malware Image Classification",
+        description: "This document presents a comparative analysis of YOLOv8 and YOLOv11 architectures for malware image classification.",
+        pdfUrl: "https://drive.google.com/file/d/1q4xRRVggepFEKL78HgWhyx9t63PriSMq/preview",
         thumbnailUrl: ""
       }
     ],
