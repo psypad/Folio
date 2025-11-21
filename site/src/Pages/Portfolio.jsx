@@ -8,6 +8,7 @@ import PapersSection from "../Components/portfolio/PapersSection";
 import SocialsSection from "../Components/portfolio/SocialsSection";
 import TerminalFooter from "../Components/portfolio/TerminalFooter";
 import LowerAbout from "../Components/portfolio/LowerAbout";
+import InteractiveTerminal from "../components/portfolio/InteractiveTerminal";
 
 
 export default function Portfolio() {
@@ -41,7 +42,7 @@ export default function Portfolio() {
     papers: [
       {
         title: "YYOLOv8 vs YOLOv11",
-        description: "Presentation for the malware analysis .",
+        description: "Presentation for the Image based malware detection .",
         pdfUrl: "https://drive.google.com/file/d/1JJARO7Rhcw0THpubAwz4G3cgZis4tBfO/preview",
         thumbnailUrl: ""
       },
@@ -72,6 +73,9 @@ export default function Portfolio() {
         <SocialsSection userData={userData} setUserData={setUserData} />
         <TerminalFooter />
       </div>
+
+
+      <InteractiveTerminal userData={userData} />
 
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');

@@ -24,7 +24,7 @@ export default function SkillsSection({ userData, setUserData }) {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section id="skills-section" className="py-20 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
@@ -43,7 +43,7 @@ export default function SkillsSection({ userData, setUserData }) {
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                 {userData.skills.map((skill, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="neumorphic-skill-card p-4 rounded-2xl group hover:scale-105 transition-transform duration-300"
                   >
