@@ -14,194 +14,47 @@ export default function InteractiveTerminal({ userData }) {
     const historyEndRef = useRef(null);
 
     const scrollToSection = (sectionId) => {
-        setTimeout(() => {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => setIsOpen(false), 800);
-            }
-        }, 300);
-    };
-
-    const commands = {
-        help: {
-            description: "Display available commands",
-            execute: () => {
-                return [
-                    { type: "output", text: "Available commands:" },
-                    { type: "output", text: "  help       - Display this help message" },
-                    { type: "output", text: "  ls         - List available sections" },
-                    { type: "output", text: "  whoami     - Display user information" },
-                    { type: "output", text: "  about      - Show about information" },
-                    { type: "output", text: "  about      - Show about information" },
-                    { type: "output", text: "  skills     - List all skills" },
-                    { type: "output", text: "  projects   - Display all projects" },
-                    { type: "output", text: "  papers     - Display Papers and Documents" },
-                    { type: "output", text: "  contact    - Show contact information" },
-                    { type: "output", text: "  social     - Display social media links" },
-                    { type: "output", text: "  clear      - Clear terminal screen" },
-                    { type: "output", text: "  exit       - Close terminal" },
-                ];
-            }
-        },
-        ls: {
-            description: "List available sections",
-            execute: () => {
-                return [
-                    { type: "output", text: "about/" },
-                    { type: "output", text: "skills/" },
-                    { type: "output", text: "projects/" },
-                    { type: "output", text: "papers/" },
-                    { type: "output", text: "contact/" },
-                    { type: "output", text: "README.md" },
-                ];
-            }
-        },
-        whoami: {
-            description: "Display user information",
-            execute: () => {
-                return [
-                    { type: "output", text: `USER: ${userData.name}` },
-                    { type: "output", text: `ROLE: ${userData.title}` },
-                    { type: "output", text: `STATUS: ACTIVE` },
-                    { type: "output", text: `CLEARANCE: LEVEL 5` },
-                ];
-            }
-        },
-        about: {
-            description: "Show about information",
-            execute: () => {
-                scrollToSection('about-section');
-                return [
-                    { type: "output", text: "=== ABOUT ===" },
-                    { type: "output", text: "Navigating to About section..." },
-                ];
-            }
-        },
-        skills: {
-            description: "List all skills",
-            execute: () => {
-                scrollToSection('skills-section');
-                return [
-                    { type: "output", text: "=== SKILLS MATRIX ===" },
-                    { type: "output", text: "Navigating to Skills section..." },
-                ];
-            }
-        },
-        papers: {
-            description: "List all papers and documents",
-            execute: () => {
-                scrollToSection('papers-section');
-                return [
-                    { type: "output", text: "=== Accessing Classified Documents ===" },
-                    { type: "output", text: "Navigating to Papers section..." },
-                ];
-            }
-        },
-        projects: {
-            description: "Display all projects",
-            execute: () => {
-                scrollToSection('projects-section');
-                return [
-                    { type: "output", text: "=== OPERATIONS ARCHIVE ===" },
-                    { type: "output", text: "Navigating to Projects section..." },
-                ];
-            }
-        },
-        contact: {
-            description: "Show contact information",
-            execute: () => {
-                scrollToSection('social-section');
-                return [
-                    { type: "output", text: "=== CONTACT INFORMATION ===" },
-                    { type: "output", text: "Navigating to Contact section..." },
-                ];
-            }
-        },
-        social: {
-            description: "Display social media links",
-            execute: () => {
-                scrollToSection('social-section');
-                return [
-                    { type: "output", text: "=== SOCIAL NETWORKS ===" },
-                    { type: "output", text: "Navigating to Social section..." },
-                ];
-            }
-        },
-        clear: {
-            description: "Clear terminal screen",
-            execute: () => {
-                return [{ type: "clear" }];
-            }
-        },
-        exit: {
-            description: "Close terminal",
-            execute: () => {
-                setIsOpen(false);
-                return [{ type: "system", text: "Closing terminal..." }];
-            }
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setIsMinimized(true);
         }
     };
 
-    useEffect(() => {
-        if (isOpen && !isMinimized && inputRef.current) {
-            inputRef.current.focus();
-        }
-    }, [isOpen, isMinimized]);
-
-    useEffect(() => {
-        historyEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, [history]);
-
-    const handleCommand = (cmd) => {
-        const trimmedCmd = cmd.trim().toLowerCase();
-
-        // Add command to history
-        const newHistory = [
-            ...history,
-            { type: "command", text: `$ ${cmd}` }
+    const executeWhoAmI = async () => {
+        const traceSteps = [
+            "Initiating trace...",
+            "Bypassing proxy...",
+            "Triangulating signal...",
+            "Accessing secure nodes...",
+            "Downloading user profile..."
         ];
 
-        if (!trimmedCmd) {
-            setHistory(newHistory);
-            return;
+        for (const step of traceSteps) {
+            setHistory(prev => [...prev, { type: "output", text: step }]);
+            await new Promise(resolve => setTimeout(resolve, 800));
         }
 
-        // Add to command history for up/down arrow navigation
-        setCommandHistory(prev => [...prev, cmd]);
-        setHistoryIndex(-1);
+        try {
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
 
-        if (commands[trimmedCmd]) {
-            const result = commands[trimmedCmd].execute();
+            const userInfo = [
+                `IP ADDRESS: ${data.ip}`,
+                `LOCATION: ${data.city}, ${data.region}, ${data.country_name}`,
+                `COORDINATES: ${data.latitude}, ${data.longitude}`,
+                `OS: ${navigator.platform}`,
+                `BROWSER: ${navigator.userAgent.split(')')[0]})`,
+                `LANGUAGE: ${navigator.language.toUpperCase()}`
+            ];
 
-            // Check if clear command
-            if (result.some(item => item.type === "clear")) {
-                setHistory([]);
-                return;
-            }
-
-            // Execute any actions
-            result.forEach(item => {
-                if (item.type === "action" && item.action) {
-                    setTimeout(() => item.action(), 500);
-                }
-            });
-
-            // Add output to history
-            setHistory([...newHistory, ...result.filter(item => item.type !== "action")]);
-        } else {
-            setHistory([
-                ...newHistory,
-                { type: "error", text: `Command not found: ${trimmedCmd}. Type 'help' for available commands.` }
+            setHistory(prev => [
+                ...prev,
+                { type: "system", text: ">>> IDENTITY CONFIRMED <<<" },
+                ...userInfo.map(info => ({ type: "output", text: info }))
             ]);
-        }
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (input.trim()) {
-            handleCommand(input);
-            setInput("");
+        } catch (error) {
+            setHistory(prev => [...prev, { type: "error", text: "TRACE FAILED: Connection secure. Identity masked." }]);
         }
     };
 
@@ -226,6 +79,62 @@ export default function InteractiveTerminal({ userData }) {
                 setInput("");
             }
         }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!input.trim()) return;
+
+        const command = input.trim().toLowerCase();
+        const newHistory = [...history, { type: "command", text: input }];
+        setCommandHistory([...commandHistory, input]);
+        setHistoryIndex(-1);
+        setInput("");
+        setHistory(newHistory);
+
+        switch (command) {
+            case "help":
+                setHistory(prev => [...prev, {
+                    type: "output",
+                    text: "Available commands: help, clear, whoami, home, about, projects, papers, contact"
+                }]);
+                break;
+            case "clear":
+                setHistory([{ type: "system", text: "Terminal cleared." }]);
+                return;
+            case "whoami":
+                await executeWhoAmI();
+                break;
+            case "home":
+                scrollToSection("hero-section");
+                setHistory(prev => [...prev, { type: "output", text: "Navigating to Home section..." }]);
+                break;
+            case "about":
+                scrollToSection("about-section");
+                setHistory(prev => [...prev, { type: "output", text: "Navigating to About section..." }]);
+                break;
+            case "projects":
+                scrollToSection("projects-section");
+                setHistory(prev => [...prev, { type: "output", text: "Navigating to Projects section..." }]);
+                break;
+            case "papers":
+                scrollToSection("papers-section");
+                setHistory(prev => [...prev, { type: "output", text: "Navigating to Papers section..." }]);
+                break;
+            case "contact":
+                scrollToSection("social-section");
+                setHistory(prev => [...prev, { type: "output", text: "Navigating to Contact section..." }]);
+                break;
+            default:
+                setHistory(prev => [...prev, { type: "error", text: `Command not found: ${command}` }]);
+        }
+
+        // Auto-scroll to bottom
+        setTimeout(() => {
+            if (historyEndRef.current) {
+                historyEndRef.current.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 10);
     };
 
     const handleLinkClick = (url) => {
@@ -334,81 +243,81 @@ export default function InteractiveTerminal({ userData }) {
             )}
 
             <style jsx>{`
-        .neumorphic-float-button {
-          background: #1a221d;
-          box-shadow: 
-            8px 8px 16px rgba(8, 12, 10, 0.9),
-            -8px -8px 16px rgba(35, 48, 40, 0.6);
-        }
+    .neumorphic-float-button {
+      background: #1a221d;
+      box-shadow: 
+        8px 8px 16px rgba(8, 12, 10, 0.9),
+        -8px -8px 16px rgba(35, 48, 40, 0.6);
+    }
 
-        .neumorphic-float-button:active {
-          box-shadow: 
-            inset 8px 8px 16px rgba(8, 12, 10, 0.9),
-            inset -8px -8px 16px rgba(35, 48, 40, 0.6);
-        }
+    .neumorphic-float-button:active {
+      box-shadow: 
+        inset 8px 8px 16px rgba(8, 12, 10, 0.9),
+        inset -8px -8px 16px rgba(35, 48, 40, 0.6);
+    }
 
-        .neumorphic-terminal {
-          background: #1a221d;
-          box-shadow: 
-            20px 20px 40px rgba(8, 12, 10, 0.95),
-            -20px -20px 40px rgba(35, 48, 40, 0.6);
-        }
+    .neumorphic-terminal {
+      background: #1a221d;
+      box-shadow: 
+        20px 20px 40px rgba(8, 12, 10, 0.95),
+        -20px -20px 40px rgba(35, 48, 40, 0.6);
+    }
 
-        .terminal-header {
-          background: linear-gradient(135deg, #1a221d 0%, #15191c 100%);
-        }
+    .terminal-header {
+      background: linear-gradient(135deg, #1a221d 0%, #15191c 100%);
+    }
 
-        .terminal-content {
-          background: #151a17;
-        }
+    .terminal-content {
+      background: #151a17;
+    }
 
-        .neumorphic-icon-button {
-          background: #1a221d;
-          box-shadow: 
-            4px 4px 8px rgba(8, 12, 10, 0.8),
-            -4px -4px 8px rgba(35, 48, 40, 0.5);
-        }
+    .neumorphic-icon-button {
+      background: #1a221d;
+      box-shadow: 
+        4px 4px 8px rgba(8, 12, 10, 0.8),
+        -4px -4px 8px rgba(35, 48, 40, 0.5);
+    }
 
-        .neumorphic-icon-button:active {
-          box-shadow: 
-            inset 4px 4px 8px rgba(8, 12, 10, 0.8),
-            inset -4px -4px 8px rgba(35, 48, 40, 0.5);
-        }
+    .neumorphic-icon-button:active {
+      box-shadow: 
+        inset 4px 4px 8px rgba(8, 12, 10, 0.8),
+        inset -4px -4px 8px rgba(35, 48, 40, 0.5);
+    }
 
-        .terminal-glow {
-          text-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
-        }
+    .terminal-glow {
+      text-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
+    }
 
-        .terminal-content::-webkit-scrollbar {
-          width: 8px;
-        }
+    .terminal-content::-webkit-scrollbar {
+      width: 8px;
+    }
 
-        .terminal-content::-webkit-scrollbar-track {
-          background: #0f1612;
-        }
+    .terminal-content::-webkit-scrollbar-track {
+      background: #0f1612;
+    }
 
-        .terminal-content::-webkit-scrollbar-thumb {
-          background: #00ff41;
-          border-radius: 4px;
-        }
+    .terminal-content::-webkit-scrollbar-thumb {
+      background: #00ff41;
+      border-radius: 4px;
+    }
 
-        .terminal-content::-webkit-scrollbar-thumb:hover {
-          background: #0f0;
-        }
+    .terminal-content::-webkit-scrollbar-thumb:hover {
+      background: #0f0;
+    }
 
-        input::placeholder {
-          color: rgba(0, 255, 65, 0.3);
-        }
+    input::placeholder {
+      color: rgba(0, 255, 65, 0.3);
+    }
 
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0;
-          }
-        }
-      `}</style>
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+  `}</style>
         </>
     );
 }

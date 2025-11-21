@@ -49,7 +49,7 @@ export default function HeroSection({ userData, setUserData }) {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20">
+    <section id="hero-section" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="w-full max-w-5xl">
         {/* Terminal Header */}
         <div className="mb-12 flex items-center justify-center gap-4">
