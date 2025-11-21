@@ -8,7 +8,7 @@ import PapersSection from "../Components/portfolio/PapersSection";
 import SocialsSection from "../Components/portfolio/SocialsSection";
 import TerminalFooter from "../Components/portfolio/TerminalFooter";
 import LowerAbout from "../Components/portfolio/LowerAbout";
-import InteractiveTerminal from "../components/portfolio/InteractiveTerminal";
+import InteractiveTerminal from "../Components/portfolio/InteractiveTerminal";
 
 
 export default function Portfolio() {
