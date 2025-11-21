@@ -26,7 +26,7 @@ export default function SocialsSection({ userData, setUserData }) {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section id="social-section" className="py-20 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">

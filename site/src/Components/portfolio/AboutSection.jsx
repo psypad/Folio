@@ -12,7 +12,7 @@ export default function AboutSection({ userData, setUserData }) {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section id="about-section" className="py-20 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
@@ -43,7 +43,7 @@ export default function AboutSection({ userData, setUserData }) {
                     <Zap className="w-5 h-5 text-[#0f0]" />
                     <span className="text-[#0f0] text-sm tracking-wider">ABOUT.EXE</span>
                   </div>
-                  
+
                   <p className="text-[#00d936] text-lg leading-relaxed mb-6 terminal-text">
                     {userData.about}
                   </p>

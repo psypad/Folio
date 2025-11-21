@@ -4,9 +4,11 @@ import HeroSection from "../Components/portfolio/HeroSection";
 import AboutSection from "../Components/portfolio/AboutSection";
 import SkillsSection from "../Components/portfolio/SkillsSection";
 import ProjectsSection from "../Components/portfolio/ProjectsSection";
+import PapersSection from "../Components/portfolio/PapersSection";
 import SocialsSection from "../Components/portfolio/SocialsSection";
 import TerminalFooter from "../Components/portfolio/TerminalFooter";
 import LowerAbout from "../Components/portfolio/LowerAbout";
+import InteractiveTerminal from "../components/portfolio/InteractiveTerminal";
 
 
 export default function Portfolio() {
@@ -37,6 +39,14 @@ export default function Portfolio() {
         githubUrl: "https://github.com/psypad/Malformer"
       },
     ],
+    papers: [
+      {
+        title: "Comparative Analysis of YOLOv8 and YOLOv11 for Malware Image Classification",
+        description: "This document presents a comparative analysis of YOLOv8 and YOLOv11 architectures for malware image classification.",
+        pdfUrl: "https://drive.google.com/file/d/1q4xRRVggepFEKL78HgWhyx9t63PriSMq/preview",
+        thumbnailUrl: ""
+      }
+    ],
     socials: {
       github: "https://github.com/psypad",
       linkedin: "https://linkedin.com/in/psypad",
@@ -47,15 +57,19 @@ export default function Portfolio() {
   return (
     <div className="relative min-h-screen bg-[#1a221d] overflow-x-hidden">
       <MatrixRain />
-      
+
       <div className="relative z-10">
         <HeroSection userData={userData} setUserData={setUserData} />
         <AboutSection userData={userData} setUserData={setUserData} />
         <SkillsSection userData={userData} setUserData={setUserData} />
         <ProjectsSection userData={userData} setUserData={setUserData} />
+        <PapersSection userData={userData} setUserData={setUserData} />
         <SocialsSection userData={userData} setUserData={setUserData} />
         <TerminalFooter />
       </div>
+
+
+      <InteractiveTerminal userData={userData} />
 
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
