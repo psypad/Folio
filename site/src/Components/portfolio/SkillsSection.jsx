@@ -127,36 +127,6 @@ export default function SkillsSection({ userData, setUserData }) {
           ))}
         </div>
 
-        {/* Edit Controls */}
-        <div className="mt-8 flex justify-end">
-          {!isEditing ? (
-            <button
-              onClick={() => setIsEditing(true)}
-              className="neumorphic-button px-6 py-2 rounded-xl text-[#00ff41]/70 hover:text-[#00ff41] text-sm tracking-wider"
-            >
-              [ EDIT SYSTEM CAPABILITIES ]
-            </button>
-          ) : (
-            <div className="flex gap-4">
-              <button
-                onClick={handleSave}
-                className="neumorphic-button px-6 py-2 rounded-xl text-[#00ff41] hover:text-[#0f0] text-sm tracking-wider"
-              >
-                [ SAVE CHANGES ]
-              </button>
-              <button
-                onClick={() => {
-                  setEditedSkills({ ...userData.skills });
-                  setIsEditing(false);
-                  setNewSkill("");
-                }}
-                className="neumorphic-button px-6 py-2 rounded-xl text-red-500/70 hover:text-red-500 text-sm tracking-wider"
-              >
-                [ CANCEL ]
-              </button>
-            </div>
-          )}
-        </div>
 
         {/* Decorative Grid Pattern */}
         <div className="mt-12 grid grid-cols-10 gap-2 opacity-30">
