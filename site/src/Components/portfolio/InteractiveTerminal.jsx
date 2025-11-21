@@ -96,7 +96,7 @@ export default function InteractiveTerminal({ userData }) {
             case "help":
                 setHistory(prev => [...prev, {
                     type: "output",
-                    text: "Available commands: help, clear, whoami, home, about, projects, papers, contact"
+                    text: "Available commands: help, clear, whoami, ls, home, about, skills, interests, projects, papers, contact"
                 }]);
                 break;
             case "clear":
@@ -105,6 +105,9 @@ export default function InteractiveTerminal({ userData }) {
             case "whoami":
                 await executeWhoAmI();
                 break;
+            case "ls":
+                setHistory(prev => [...prev, { type: "output", text: "home\n about\n skills\n interests\n projects\n papers\n contact" }]);
+                break;
             case "home":
                 scrollToSection("hero-section");
                 setHistory(prev => [...prev, { type: "output", text: "Navigating to Home section..." }]);
@@ -112,6 +115,14 @@ export default function InteractiveTerminal({ userData }) {
             case "about":
                 scrollToSection("about-section");
                 setHistory(prev => [...prev, { type: "output", text: "Navigating to About section..." }]);
+                break;
+            case "skills":
+                scrollToSection("skills-section");
+                setHistory(prev => [...prev, { type: "output", text: "Navigating to skills section..." }]);
+                break;
+            case "interests":
+                scrollToSection("interests-section");
+                setHistory(prev => [...prev, { type: "output", text: "Navigating to Interests section..." }]);
                 break;
             case "projects":
                 scrollToSection("projects-section");

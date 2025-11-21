@@ -9,6 +9,7 @@ import SocialsSection from "../Components/portfolio/SocialsSection";
 import TerminalFooter from "../Components/portfolio/TerminalFooter";
 import LowerAbout from "../Components/portfolio/LowerAbout";
 import InteractiveTerminal from "../Components/portfolio/InteractiveTerminal";
+import InterestsSection from "../Components/portfolio/InterestsSection";
 
 
 export default function Portfolio() {
@@ -16,14 +17,23 @@ export default function Portfolio() {
     name: "Sylan Padmakumar",
     title: "Ingeniarius Machinarum",
     about: "As an innovative final-year computer science student with a minor in cyber security, I am eager to bring my skills and passion for cutting edge technology to the job. My academic foundation combined with a keen interest in low-level systems programming, cyber security, and embedded systems positions me to contribute meaningfully to innovative projects. I am ready to take advantage of my knowledge in cyber security to develop secure, efficient and scalable solutions. Looking for an opportunity to collaborate with industry-leading professionals with whom I can further hone my technical expertise and contribute to pioneering advances in technology.",
-    skills: [
-      "RUST",
-      "C++",
-      "C",
-      "X86_64 ASM",
-      "PYTHON",
-      "MALWARE ANALYSIS",
-      "Iot",
+    skills: {
+      languages: ["RUST", "C++", "C", "X86_64 ASM", "PYTHON", "Svelte"],
+      tools: ["Git", "Ghidra", "GDB", "WireShark", "nmap", "Nessus", "TheHive"],
+      frameworks: ["Pytorch", "CUDA", "Metasploit"],
+      platforms: ["Github", "Linux", "AWS", "virtualBox", "vmware Workstation"]
+    },
+    interests: [
+      "Low Level Programming",
+      "IOT",
+      "Cybersecurity",
+      "AI-ML",
+      "Quantum Computing",
+      "Computer Architecture",
+      "Compilers",
+      "Operating Systems",
+      "Robotics",
+
     ],
     projects: [
       {
@@ -41,11 +51,17 @@ export default function Portfolio() {
     ],
     papers: [
       {
+        title: "RESUME",
+        description: "This document contains the body of work I want to put out there.",
+        pdfUrl: "https://drive.google.com/file/d/10KADqFAEyLNdLsTJFzC_mx3gX_EU3HMe/preview",
+        thumbnailUrl: ""
+      },
+      {
         title: "Comparative Analysis of YOLOv8 and YOLOv11 for Malware Image Classification",
         description: "This document presents a comparative analysis of YOLOv8 and YOLOv11 architectures for malware image classification.",
         pdfUrl: "https://drive.google.com/file/d/1q4xRRVggepFEKL78HgWhyx9t63PriSMq/preview",
         thumbnailUrl: ""
-      }
+      },
     ],
     socials: {
       github: "https://github.com/psypad",
@@ -62,6 +78,7 @@ export default function Portfolio() {
         <HeroSection userData={userData} setUserData={setUserData} />
         <AboutSection userData={userData} setUserData={setUserData} />
         <SkillsSection userData={userData} setUserData={setUserData} />
+        <InterestsSection userData={userData} setUserData={setUserData} />
         <ProjectsSection userData={userData} setUserData={setUserData} />
         <PapersSection userData={userData} setUserData={setUserData} />
         <SocialsSection userData={userData} setUserData={setUserData} />
